@@ -10,10 +10,10 @@ const octokit = auth ? new Octokit({auth}) : new Octokit();
         await octokit.pulls.create({
             owner: github.context.repo.owner,
             repo: github.context.repo.repo,
-            head: core.getInput('head-branch'),
-            base: core.getInput('base-branch'),
-            title: core.getInput('pr-title'),
-            body: core.getInput('pr-body'),
+            head: core.getInput('head'),
+            base: core.getInput('base'),
+            title: core.getInput('title'),
+            body: core.getInput('body'),
         });
     } catch (error) {
         console.log(error);
