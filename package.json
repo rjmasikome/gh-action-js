@@ -1,0 +1,21 @@
+{
+  "name": "gh-action-js",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:rjmasikome/gh-action-js.git",
+  "author": "Rian Josua Masikome <rian.masikome@rewe-digital.com>",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.2.5",
+    "@actions/github": "^4.0.0",
+    "@octokit/rest": "^18.0.6"
+  },
+  "devDependencies": {
+    "typescript": "^4.0.2"
+  },
+  "scripts": {
+    "start": "node --icu-data-dir=node_modules/full-icu -r source-map-support/register build/index.js",
+    "build": "npm run compile",
+    "compile": "tsc --pretty"
+  }
+}

@@ -1,0 +1,22 @@
+name: 'Git Arbitary and PR'
+description: 'Some arbitary Git action and creating a Pull Request to Github based on octokit'
+inputs:
+  head-branch:
+    description: 'Head branch where the Pull Request originate from'
+    required: true
+  base-branch:
+    description: 'Base branch where the Pull Request will merge to'
+    required: true
+    default: 'master'
+  pr-title:
+    description: 'Pull Request Title'
+    required: true
+    default: 'Pull Request by Github Action Bot'
+  pr-body:
+    description: 'Pull Request Body'
+    required: true
+    default: 'This Pull Request is created by Github Action Bot'
+
+runs:
+  using: 'node12'
+  main: './build/index.js'

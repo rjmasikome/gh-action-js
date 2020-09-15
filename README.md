@@ -1,2 +1,2 @@
 # gh-action-js
-Test Repo for GH Action based on NodeJS
+Test Repo for GH Action based on NodeJS. In order to run GH Action based on NodeJS `node_modules` needs to be included in the repository. Since this is a TypeScript based Action, the output of transpiling also needs to be included.
