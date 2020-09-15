@@ -2,7 +2,8 @@ import * as core from '@actions/core';
 import * as github from '@actions/github';
 import { Octokit } from '@octokit/rest';
 
-const octokit = new Octokit();
+const auth = core.getInput('authentication');
+const octokit = auth ? new Octokit({auth}) : new Octokit();
 
 (async () => {
     try {
@@ -15,6 +16,12 @@ const octokit = new Octokit();
             body: core.getInput('pr-body'),
         });
     } catch (error) {
+        console.log("Owner:", github.context.repo.owner);
+        console.log("Repo:", github.context.repo.repo);
+        console.log("Head:", core.getInput('head-branch'));
+        console.log("Base:", core.getInput('base-branch'));
+        console.log("Body:", core.getInput('pr-body'));
+        console.log(error);
         core.setFailed(error.message);
     }
 })();

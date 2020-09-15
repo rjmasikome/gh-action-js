@@ -3,7 +3,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const core = require("@actions/core");
 const github = require("@actions/github");
 const rest_1 = require("@octokit/rest");
-const octokit = new rest_1.Octokit();
+const auth = core.getInput('authentication');
+const octokit = auth ? new rest_1.Octokit({ auth }) : new rest_1.Octokit();
 (async () => {
     try {
         await octokit.pulls.create({
@@ -16,6 +17,12 @@ const octokit = new rest_1.Octokit();
         });
     }
     catch (error) {
+        console.log("Owner:", github.context.repo.owner);
+        console.log("Repo:", github.context.repo.repo);
+        console.log("Head:", core.getInput('head-branch'));
+        console.log("Base:", core.getInput('base-branch'));
+        console.log("Body:", core.getInput('pr-body'));
+        console.log(error);
         core.setFailed(error.message);
     }
 })();
