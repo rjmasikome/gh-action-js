@@ -6,7 +6,7 @@
   "author": "Rian Josua Masikome <rian.masikome@rewe-digital.com>",
   "license": "MIT",
   "dependencies": {
-    "@actions/core": "^1.2.5",
+    "@actions/core": "^1.2.6",
     "@actions/github": "^4.0.0",
     "@octokit/rest": "^18.0.6"
   },
